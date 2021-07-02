@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/querydsl
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+#        dialect: org.hibernate.dialect.Oracle10gDialect
+#        show_sql: true  #print로 남김
+        format_sql: true
+
+  data:
+    web:
+      pageable:
+        default-page-size: 10 #pageable default page size
+        one-indexed-parameters: true #web에서 page파라미터를 -1처리한다. 첫페이지 값을 0에서 1로 바꿀 수 있음. 근데 pageable객체는 0으로 리턴한다. 그냥 화면이랑 협의해서 zero base로 가는걸 추천
+  h2:
+    console:
+      enabled: true
+
+#logging.level:
+#  org.hibernate.SQL: debug #log로 남김
+# org.hibernate.type: trace #parameter보기
