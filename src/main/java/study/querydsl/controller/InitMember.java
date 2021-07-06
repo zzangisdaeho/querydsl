@@ -19,9 +19,12 @@ public class InitMember {
     private final InitMemberService initMemberService;
 
     @PostConstruct
+    //PostConstructor와 Transactional 어노테이션은 spring life cycle 문제에 의해 같이 넣지 못한다.
+    //고로 외부 클래스로 만들어주어 호출하는 방식으로 데이터를 넣어준다
     public void init(){
         initMemberService.init();
     }
+
 
     @Component
     static class InitMemberService{
